@@ -1,13 +1,13 @@
 # Paddle bindings for CUDA-Warp RNN-Transducer
 
 ## Install
-under this fold
+under this folder
 ```bash
 python setup.py install
 ```
 
 ## Test
-under this fold
+under this folder
 ```bash
 python test.py
 ```
