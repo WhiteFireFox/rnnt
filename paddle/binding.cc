@@ -22,8 +22,9 @@
 #define DIM(x) x.shape().size()
 
 std::vector<paddle::Tensor> rnnt_loss(const paddle::Tensor& xs, const paddle::Tensor& ys,
-                                      const paddle::Tensor& xn, const paddle::Tensor& yn,
-                                      const int blank = 0, const float fastemit_lambda = 0.0) {
+                                      const paddle::Tensor& xn, const paddle::Tensor& yn) {
+    const int blank = 0;
+    const float fastemit_lambda = 0.0;
     // Check device
     CHECK_INPUT(xs);
     CHECK_INPUT(ys);
@@ -111,8 +112,6 @@ std::vector<paddle::DataType> RnntLossInferDtype(
 PD_BUILD_OP(rnnt_loss)
     .Inputs({"xs", "ys", "xn", "yn"})
     .Outputs({"costs", "grads"})
-    .Attrs({"blank: int",
-            "fastemit_lambda: float"})
     .SetKernelFn(PD_KERNEL(rnnt_loss))
     .SetInferShapeFn(PD_INFER_SHAPE(RnntLossInferShape))
     .SetInferDtypeFn(PD_INFER_DTYPE(RnntLossInferDtype));
