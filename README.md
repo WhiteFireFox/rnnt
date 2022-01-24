@@ -8,3 +8,31 @@ origin ：https://github.com/1ytic/warp-rnnt
 2、运算过程在core.cu中实现，.cu文件paddle和pytorch是一样的
 
 3、问题出现在[paddle](./paddle/core.cu#353)上面(对应于[pytorch](./pytorch/core.cu#353))，这一步应该是手算出来的结果和机器算出来的结果的比较，pytorch算出来相差不大，但是paddle算出来的有差异，不知道问题出现在哪里
+
+# Paddle bindings for CUDA-Warp RNN-Transducer
+
+## Install
+under paddle folder
+```bash
+python setup.py install
+```
+
+## Test
+under paddle folder
+```bash
+python test.py
+```
+
+# Pytorch bindings for CUDA-Warp RNN-Transducer
+
+## Install
+under pytorch folder
+```bash
+python setup.py install
+```
+
+## Test
+under pytorch folder
+```bash
+python test.py
+```
